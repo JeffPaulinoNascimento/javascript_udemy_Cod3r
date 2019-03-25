@@ -13,13 +13,31 @@
     <div id='conteudo'></div>
 
     <script>
+       /********** podera ser usado dessa forma tambem
+       faz a mesma coisa que o .ready
+        $(function(){
+            
+        })
+        */
+        $(document).ready(function(){ // .ready (página pronta) - Quando a página estiver carregada, a DOM já poderá ser manipulada
         const pessoas = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
-        ]
-        
-        // ...
+        ]  
+
+        const linhas = pessoas.map(p => {
+            const tdNome = $('<td>').html(p.nome)
+            const tdNota = $('<td>').html(p.nota)
+            return $('<tr>').append(tdNome).append(tdNota)
+        })
+
+        const tabela = $('<table>').append(linhas).css('border', 'solid 5px')
+
+        $('#conteudo').append(tabela)
+
+        })
+
     </script>
 </body>
