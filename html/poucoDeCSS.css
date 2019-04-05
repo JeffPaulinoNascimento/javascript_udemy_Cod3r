@@ -1,0 +1,21 @@
+html, body {height:100%;}
+            
+            
+            #textoPrincipal {
+                font-size: 40px;
+                font-weight: bold;
+                color: #fff;
+                padding: 10px;
+                 
+                margin-bottom: 50px;
+            }
+
+            .footer{
+                background-color: rgb(126, 2, 2);
+                position: fixed;
+                padding: 15px;
+                width: 100%;
+                bottom: 0;
+                left:0;
+                color: #fff;
+            }
