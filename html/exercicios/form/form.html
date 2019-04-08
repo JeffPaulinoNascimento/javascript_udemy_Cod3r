@@ -1,0 +1,39 @@
+<h1>Fomulário</h1>
+
+<form method="POST">
+    <input type="hidden" name="id" value="3">
+    <input type="text" name="nome">
+    <input type="password" name="senha">
+    <textarea name="bio" cols="30" rows="10"></textarea>
+    <div>
+        <input type="radio" name="tipo" value="admin"> Admin    <!--No campo value é o valor que sera enviado ao backend-->
+        <input type="radio" name="tipo" value="regular"> Regular
+        <input type="radio" name="tipo" value="professor"> Professor
+    </div>
+    <div>
+        <input type="checkbox" name="ativo"> Ativo
+    </div>
+
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="ac">Acre</option>
+        <option value="ba">Bahia</option>
+        <option value="ce">Ceara</option>
+    </select>
+
+    <button formaction="http://localhost:3003/usuarios">Inlcuir</button>
+    <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+</form>
+
+<style>
+    input, textarea{
+        display: block;
+        margin-bottom: 10px; 
+    }
+
+    input[type=radio], input[type=checkbox]{ /* aplica o estilo nos inputs do tipo radio */
+        display: inline;
+    }
+
+    input
+</style>
