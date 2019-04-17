@@ -7,6 +7,16 @@
         body {
             font-size: 45px;
         }
+
+        div{
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            /*Até aqui a borda ficará para fora, precisa adicionar o atributo box-sizing: border-box*/
+            box-sizing: border-box; /* considerando o padding e a borda ele coloca o espaço que voce quer ocupar contando esses dois elementos(padding e border)*/
+        }
     </style>
 </head>
 <body>

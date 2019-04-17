@@ -5,7 +5,27 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body{
+            font-size: 50px;
+            color: #ffffff;
+            background-color: coral;
+        }
+
+        ul{padding: 0;}
+        div{background-color: seagreen; }
+        span{background-color: dodgerblue; }
+        li{background-color: purple; }
+
+        div, span, li{
+            width: 50%; /*tamanho relativo*/ /*largura*/
+            width: 200px; /*valor absoluto*/
+            height: 80px; /*altura*/
+            padding-top: 30px;
+            text-align: center;
+            /* display: block; coloca cada item em uma linha
+            display: inline;  coloca todos itens na mesma linha */
+            display: inline-block;/* coloca todos na mesma linha mas vc consegue atribuir largura e altura CARDS*/
+        }
     </style>
 </head>
 

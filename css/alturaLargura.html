@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+
+        /* Tag body e a tag html ocupam toda a largura mas nao toda a altura */
+
         body {
             font-size: 40px;
             background-color: coral;
@@ -16,6 +19,12 @@
 
         span {
             background-color: dodgerblue;
+        }
+
+        span, div{
+            width: 50%;
+            height: 50%; /*unidade relativa, nesse caso relativo ao body*/
+            height: 250px; /*unidade fixa, esse atributo aumentará o body */
         }
     </style>
 </head>
