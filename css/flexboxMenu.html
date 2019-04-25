@@ -51,9 +51,32 @@
             background: #f50a31;
             color: #fff;
         }
-        /* ==================== */
-        /* Solução com Flex Box */
-        /* ==================== */
+
+        /* =============================
+            solução com Flex Box 
+           ============================= */
+
+        .cabecalho{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu{
+            flex-grow: 10; /*divide o espaço sobrando e coloca a maior parte no menu(ele fica com mais espaço)*/ 
+        }
+
+        .menu ul{
+            display: flex;
+        }
+
+        .menu li{
+            margin: 0px 10px; /*0px cima baixo //// 10px esquerda direita*/
+        }
+  
+
+
+
     </style>
 </head>
 

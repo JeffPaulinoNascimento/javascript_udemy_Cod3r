@@ -22,6 +22,36 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body{
+            display: grid;
+            grid-template-columns: 50% 50%; /* divide em colunas, nesse caso em duas colunar com tamanho de 50% cada */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%); /* vai multiplicar as 3 colunas por 4 que foi definido na primeira posição */
+            grid-template-columns: repeat(11, 100px) 100px; /* tera 12 colunas com 100px cada */
+            grid-template-columns: 200px 20% 1fr; /*tera 3 colunas 1 com 200px a segunda com 20% e a 3 coluna com o que sobrou do 200px menos os 20%*/
+            grid-template-rows: 100px 1fr; /*terá duas linhas com esse valor e as outras duas com valores padrões para caber o conteudo*/
+            grid-template-rows: 100px auto auto auto; /*as outras linhas terão valor automatico*/
+        }
+
+        .d8{
+            grid-column-start: 2; 
+            grid-column-end: 4; 
+            grid-column-end: span 2; 
+            grid-row-start: 3;
+            grid-row-end: 5;
+        }
+
+        .d10, .d11{
+            /*podem se sobrepor*/
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;    
+        }
+
+        .d10{
+            z-index: 10; /*coloca o elemento na frente dos outros*/
+        }
     </style>
 </head>
 

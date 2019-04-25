@@ -20,6 +20,20 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body{
+            display: grid;
+            grid-template-columns: [inicio] 1fr [metade-1] 1fr [metade-2] 1fr [fim]; /* adicionar nomes nas linhas */
+            grid-template-rows: repeat(3, 1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            
+        }
+
+        .d1{
+            grid-column-start: metade-2;
+            grid-column-end: fim;
+        }
     </style>
 </head>
 
