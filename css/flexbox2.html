@@ -6,7 +6,51 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        div{
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+
+        .flex-container div{
+            box-sizing: border-box;
+        }
+
+        .flex-container{
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3){ /*pega o 3 filho dentro da div*/
+            background-color: indianred;
+            order: 1; /*ordem maior de todos os elementos (-1; 0; 1) - deixa o elemento em ultimo lugar*/
+            order: 0; /*mesma ordem de todos os elementos (-1; 0; 1) - deixa o elemento no lugar em que foi definido no html*/
+            order: -1; /*ordem menor de todos os elementos (-1; 0; 1) - deixa o elemento em primeiro lugar*/
+            align-self: center; /*coloca o elemento no centro*/
+            align-self: flex-end; /*coloca o elemento no fim*/
+            align-self: flex-start; /*coloca o elemento no inicio*/
+            align-self: stretch; /*deixa o elemento como estava - valor padrão*/
+        }
+
+        .flex-container div{
+            width: 100px; /*largura*/
+            flex-grow: 1; /*pega a fatia que esta sobrando divide em pedaços iguais e aplica nos elementos dentro da div container*/
+
+        }
+
+        .flex-container div:nth-child(1){
+            flex-grow: 2; /*pega a fatia que esta sobrando divide em pedaços iguais e no elemento selecionado (nesse caso o primeiro filho da div) ele multiplica por 2 o seu tamanho*/
+        }
+
+        /*encolher os elementos*/
+        .flex-container{
+            width: 300px;
+            flex-shrink: 1; /*diminui todos os elementos com o mesmo tamanho*/
+        }
+
+        .flex-container div:nth-child(1){
+            flex-shrink: 5; /*diminui o primeiro filho da div com um peso maior*/
+        }
     </style>
 </head>
 
