@@ -5,6 +5,7 @@
     <meta charset='UTF-8'>
     <title>Trabalhando com Eventos #04</title>
     <link rel='stylesheet' href='css/estilo.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
         form {
             display: flex;
@@ -31,6 +32,14 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+        $("[wm-submit]").click( e => {
+            e.preventDefault();
+            
+            const form = e.target.parentNode; /* Estou pegando o pai(nesse exemplo o pai do botão - parentNode faz isso, é o que está envolvendo aquele elemento) */
+            const formData = new formData(form);
+
+
+
+        });      
     </script>
 </body>
