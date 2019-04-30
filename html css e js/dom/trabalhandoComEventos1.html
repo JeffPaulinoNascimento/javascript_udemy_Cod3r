@@ -9,9 +9,25 @@
 
 <body class="conteudo exercicio">
     <div>
+        <!--onclick="navegarEm5s(event)"-->
         <a href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e){
+            e.preventDefault(); /* previne o comportamento padrão do evento*/
+            console.log("Saindo em 5s...");
+            setTimeout(() => { //setTimeout é uma função pré-definida do javasacript
+                const link = e.target; //para pegar o clique do evento, o target
+                window.location.href = link.href;
+            }, 5000) /*ele vai direcionar para o google após 5 segundos*/
+        }
+
+        /* Assim
+        const a = document.querySelector("a");
+        a.onclick = navegarEm5s;
+        */
+
+        //ou assim
+        document.querySelector("a").onclick = navegarEm5s;
     </script>
 </body>

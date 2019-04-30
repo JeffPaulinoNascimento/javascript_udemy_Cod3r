@@ -10,6 +10,24 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector("div");
+        item.style.position = "absolute";
+
+        item.onmousemove = e => {
+
+            const item = e.target; /*nesse exemplo a div que eu estou clicando*/
+            item.style.cursor = "move";
+            if(e.buttons){ /*se a div foi clicada, ou seja, for direferente de zero*/
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`;  /*até o top, eu quero setar a posição onde a div esta em realção ao topo da pagina, até aqui ele move para baixo e para cima*/
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`;
+            
+                //item.style.background = "rgb(" + gerarCor() + "," + gerarCor() + "," + gerarCor() + ")"; /* dessa forma ou concatenando com ` ` */
+                item.style.background = `rgb(${gerarCor()}, ${gerarCor()}, ${gerarCor()})`;
+            }
+        }
+
+        function gerarCor(){
+            return Math.floor(Math.random() * 256);
+        }
     </script>
 </body>

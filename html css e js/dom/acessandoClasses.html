@@ -12,7 +12,25 @@
         Classes
     </div>
     <script>
-        // ...
+        const classes = document.querySelector("div").classList;
+        classes.add("destaque");
+        classes.remove("destaque");
+        classes.toggle("destaque"); /*se ja esxiste a classe ele remove se não existe ele adiciona*/
+        console.log("Contem destaque = " + classes.contains("destaque"));
+        console.log("tamanho da variavel classes = " + classes.length);
+        classes.toggle("destaque");
+        console.log("tamanho da variavel classes = " + classes.length);
+
+        classes.add("destaque1");
+        classes.add("destaque2");
+    
+        for(let c of classes){ /*iterar em cima da classe*/
+            console.log(c);
+        }
+
+        console.log("...................Foreach...................");
+        classes.forEach(c => console.log(c));
+
     </script>
 </body>
 

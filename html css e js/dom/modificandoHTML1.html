@@ -9,7 +9,33 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector("body");
+
+        const div1 = document.createElement("div");
+        div1.classList.add("destaque");
+        div1.innerHTML = "primeiro";
+
+        const div2 = document.createElement("div");
+        div2.setAttribute("wm-atributo", "valor");
+        div2.innerHTML = "segundo";
+
+        const p = document.createElement("p");
+        p.innerHTML = "terceiro";
+        const div3 = document.createElement("div");
+        div3.appendChild(p); /* adiciona como utimo elemento da div o paragrafo p */
+
+        body.appendChild(div1);
+        body.appendChild(div2);
+        body.appendChild(div3);
+
+        const texto = document.createTextNode("Antes....");
+        div3.insertBefore(texto, div3.childNodes[0]); /*insere o texto antes do filho que está na posição 0(antes do "terceiro")*/
+
+
+
+        const div4 = div3.cloneNode(true);
+        body.appendChild(div4);
+        body.removeChild(div3);
     </script>
 </body>
 
