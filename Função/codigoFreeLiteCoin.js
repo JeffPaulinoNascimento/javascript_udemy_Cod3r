@@ -6,12 +6,12 @@ $(document).ready(function() {
 });
 
 function numberdigit(cislo) {
-    document.getElementById("number1").textContent = 1;
-    document.getElementById("number2").textContent = 1;
-    document.getElementById("number3").textContent = 1;
-    document.getElementById("number4").textContent = 1;
-    document.getElementById("number5").textContent = 1;
-    document.getElementById("number6").textContent = 1;
+    document.getElementById("number1").textContent = Math.floor((cislo / 100000) % 10);
+    document.getElementById("number2").textContent = Math.floor((cislo / 10000) % 10);
+    document.getElementById("number3").textContent = Math.floor((cislo / 1000) % 10);
+    document.getElementById("number4").textContent = Math.floor((cislo / 100) % 10);
+    document.getElementById("number5").textContent = Math.floor((cislo / 10) % 10);
+    document.getElementById("number6").textContent = Math.floor((cislo / 1) % 10);
 }
 
 function doc_keyUp(e) {
@@ -71,7 +71,7 @@ function loadinput() {
 
 function changenumbekkkr() {
     if (run == true) {
-        numberdigit(1);
+        numberdigit(Math.floor((Math.random() * 100000)));
         setTimeout(changenumbekkkr, 20);
     }
 }
@@ -83,7 +83,7 @@ function reclc() {
     vysledek = castka * 100 / šance;
     vysledek = (vysledek - castka) / 100 * (100 - dan);
     document.getElementById("winmoney").textContent = "You can win " + vysledek.toFixed(8)+ " Litecoin when you bet high and get a number higher than "
-        + 1 +" or bet low and get a number lower than " + 1 ;
+        + Math.round(100000-(100000 / 100 * šance))+" or bet low and get a number lower than " +  Math.round(100000 / 100 * šance);
 }
 
 function bet(high) {
@@ -93,6 +93,7 @@ function bet(high) {
 
 
     var šance = document.getElementById("winchance").value;
+    šance=Math.round(šance);
     var castka = document.getElementById("betmoney").value;
     if(isNaN(parseFloat(šance))||isNaN(parseFloat(castka))){
         document.getElementById("winlose").textContent = "Variable are incorrect";
@@ -113,7 +114,7 @@ function sendrequest(cryptovalue,winchance,betlow,repeat){
         type: 'post',
         cache: false,
         datatype: "text",
-        data: {"money": 0.00000001, "winchance": winchance, "sudalicha": false},
+        data: {"money": cryptovalue, "winchance": winchance, "sudalicha": betlow},
         success: function (response) {
             /*run = false;
             if (response.indexOf("error") !== -1) {
@@ -146,16 +147,16 @@ function sendrequest(cryptovalue,winchance,betlow,repeat){
             run = false;
             var result = response;
             if(result.state&&result.winlost){
-                numberdigit(1);
-                $("#money").text(0.00000010);
+                numberdigit(result.number);
+                $("#money").text(result.cryptovalue);
                 $("#moneybasicmultiply").text(result.cryptovalue);
                 $("#winlose").text(result.messege);
                 $('#winlose').css('color', 'green');
 
             }
             else if(result.state&&!result.winlost){
-                numberdigit(1);
-                $("#money").text(0.00000020);
+                numberdigit(result.number);
+                $("#money").text(result.cryptovalue);
                 $("#moneybasicmultiply").text(result.cryptovalue);
                 $("#winlose").text(result.messege);
                 $('#winlose').css('color', 'red');
